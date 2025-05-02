@@ -1,2 +1,94 @@
-/* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+
+@theme {
+    /*  Primary color*/
+    --color-primary: oklch(60% 0.118 184.704);
+    --color-actif: oklch(43.7% 0.078 188.216);
+    /*  Secondary color*/
+    --color-text: oklch(55.1% 0.027 264.364);
+    --color-title-card: oklch(27.8% 0.033 256.848);
+    --color-text-card-h2: oklch(21% 0.034 264.665);
+}
+@layer base {
+    body {
+        @apply bg-white;
+    }
+
+    header {
+        @apply bg-black;
+    }
+
+    footer {
+        @apply bg-primary;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply  font-bold;
+    }
+
+    a {
+        @apply text-white hover:underline underline-offset-1 active:underline underline-offset-1 active:text-primary;
+    }
+
+    p, a {
+        --font-dipsplay: "Roboto", sans-serif;
+    }
+
+}
+
+@utility btn {
+    @apply cursor-pointer bg-white text-primary rounded-lg px-4 py-2 hover:text-white hover:border-2 border-white hover:bg-primary active:bg-actif;
+}
+
+@utility img-filter {
+    @apply absolute inset-0 bg-gradient-to-t from-black/25 to-black/75;
+}
+
+@utility card
+{
+    @apply cursor-pointer relative overflow-hidden rounded-lg min-h-[300px] w-full rounded-2xl h-100 border border-gray-200 p-12 shadow-xs sm:px-8 lg:p-8 bg-cover bg-center;
+
+    h3 {
+        @apply text-white text-xl text-2xl font-bold mb-2;
+    }
+
+    p {
+        @apply text-white text-xl lg:text-lg;
+    }
+}
+
+@utility card-filter {
+    @apply absolute inset-0 bg-gradient-to-t from-black/0 to-black/100;
+}
+
+@utility card-text {
+    @apply relative h-full flex flex-col justify-start text-white;
+}
+
+@utility section-essentials {
+    @apply    bg-gray-300;
+}
+
+@utility card-essentials {
+    @apply bg-white p-6 rounded-lg shadow-md hover:bg-primary;
+
+    div {
+        @apply mb-4 text-primary font-bold text-5xl group-hover:text-white;
+    }
+
+    h3 {
+        @apply text-xl text-text-card-h2 font-semibold mb-3 group-hover:text-white;
+    }
+
+    p {
+        @apply text-text group-hover:text-white;
+    }
+}
+
+@utility card-tarifs {
+    @apply cursor-pointer rounded-2xl border border-title-card p-6 shadow-xs ring-1 ring-title-card sm:px-8 lg:py-12 hover:bg-primary hover:border-primary hover:ring-primary
+}
+
+@utility btn-tarifs{
+    @apply cursor-pointer flex justify-center no-underline bg-white text-primary rounded-lg border border-primary px-4 py-2;
+}
